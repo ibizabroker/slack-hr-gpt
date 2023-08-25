@@ -33,10 +33,17 @@ def get_response(input):
     "question": input
   })
   chat_history = chain_result['chat_history']
-  output = ''
+  
+  response = ''
+  source_doc = ''
+  source_doc_page = ''
 
   for i, message in enumerate(reversed(chat_history)):
     if i % 2 == 0:
-      output = message.content
+      response = message.content
+      source_doc = chain_result['source_documents'][0].metadata['source']
+      source_doc_page = chain_result['source_documents'][0].metadata['page']
+
+  output = f"""{response} \n \n *Source*: {source_doc} \n *Page number*: {source_doc_page}"""
 
   return output
