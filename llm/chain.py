@@ -23,7 +23,7 @@ def get_conversation_chain(vector_store):
   conversation_chain = ConversationalRetrievalChain.from_llm(
     llm=llm,
     chain_type="stuff",
-    verbose=True,
+    verbose=False,
     retriever=vector_store.as_retriever(),
     return_source_documents=True,
     combine_docs_chain_kwargs={"prompt": QA_PROMPT},
