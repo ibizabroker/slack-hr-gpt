@@ -33,3 +33,15 @@ def response_using_llm(event, ack, app):
     ts=ack_message_id,
     blocks=blocks
   )
+
+  app.client.reactions_add(
+    channel=channel,
+    timestamp=ack_message_id,
+    name='thumbsup'
+  )
+
+  app.client.reactions_add(
+    channel=channel,
+    timestamp=ack_message_id,
+    name='thumbsdown'
+  )
