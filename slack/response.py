@@ -45,3 +45,5 @@ def response_using_llm(event, ack, app):
     timestamp=ack_message_id,
     name='thumbsdown'
   )
+
+  return user_query, response

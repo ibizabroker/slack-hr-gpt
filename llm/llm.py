@@ -33,7 +33,7 @@ def get_response(input):
     "question": input
   })
   chat_history = chain_result['chat_history']
-  
+
   response = ''
   source_doc = ''
   source_doc_page = ''
@@ -44,6 +44,6 @@ def get_response(input):
       source_doc = chain_result['source_documents'][0].metadata['source']
       source_doc_page = chain_result['source_documents'][0].metadata['page']
 
-  output = f"""{response} \n \n *Source*: {source_doc} \n *Page number*: {source_doc_page}"""
+  output = f"""{response} \n \n*Source*: {source_doc} \n*Page number*: {source_doc_page}"""
 
   return output
