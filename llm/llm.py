@@ -43,7 +43,10 @@ def get_response(input):
       response = message.content
       source_doc = chain_result['source_documents'][0].metadata['source']
       source_doc_page = chain_result['source_documents'][0].metadata['page']
-
+  
+  if response.startswith("I'm sorry"):
+    return response
+  
   output = f"""{response} \n \n*Source*: {source_doc} \n*Page number*: {source_doc_page}"""
 
   return output
