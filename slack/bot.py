@@ -26,6 +26,10 @@ def handle_message_events(event, ack):
     shared_data.user_query, shared_data.actual_output = response_using_llm(event, ack, app)
   return
 
+@app.event("app_mention")
+def handle_mention(event, ack):
+  shared_data.user_query, shared_data.actual_output = response_using_llm(event, ack, app)
+
 @app.event("reaction_added")
 def handle_reaction(event, say):
   user_id = event["user"]
