@@ -50,24 +50,70 @@ def handle_reaction(event, say):
       write_user_feedback(
         user_name=user_name, 
         user_query=shared_data.user_query, 
-        actual_output=actual_output_without_source, 
+        actual_output=actual_output_without_source,
+        expected_output="",
         reaction=reaction
       )
 
       response_text = f"Thank you {user_name} for your valued feedback!"
+      say(response_text)
     elif reaction == '-1':
-      write_user_feedback(
-        user_name=user_name, 
-        user_query=shared_data.user_query, 
-        actual_output=actual_output_without_source,
-        reaction=reaction
-      )
+      blocks = [
+        {
+          "dispatch_action": True,
+          "type": "input",
+          "element": {
+            "type": "plain_text_input",
+            "action_id": "plain_text_input-action",
+          },
+          "label": {
+            "type": "plain_text",
+            "text": "Enter the expected output:",
+            "emoji": False,
+          },
+        }
+      ]
 
-      response_text = f"We're sorry {user_name}, to hear that the response wasn't satisfactory. Your feedback will help us improve our model!"
-    say(response_text)
+      say(blocks=blocks)
   else:
     response_text = f"Hi {user_name}, looks like you've already provided a feedback!"
     say(response_text)
+
+@app.action("plain_text_input-action")
+def handle_input_submission(ack, body, respond):
+  ack()
+
+  user_id = body["user"]["id"]
+  user_name = app.client.users_info(
+    user=user_id
+  )['user']['profile']['real_name']
+  user_input = body["actions"][0]["value"]
+
+  actual_output_lines = shared_data.actual_output.strip().split("\n")
+  actual_output_new_lines = actual_output_lines[:-3]
+  actual_output_without_source = "\n".join(actual_output_new_lines)
+
+  write_user_feedback(
+    user_name=user_name,
+    user_query=shared_data.user_query,
+    actual_output=actual_output_without_source,
+    expected_output=user_input,
+    reaction="-1"
+  )
+
+  thank_you_message = {
+    "blocks": [
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": f"Thank you {user_name} for your valued feedback!",
+        },
+      }
+    ]
+  }
+
+  respond(thank_you_message)
 
 def run_bot():
   SocketModeHandler(app, app_token).start()
