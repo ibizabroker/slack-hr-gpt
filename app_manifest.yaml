@@ -1,0 +1,58 @@
+display_information:
+  name: HR Virtuoso
+  description: "HR Virtuoso: Your intelligent HR Bot."
+  background_color: "#2c2d30"
+  long_description: "- HR Policy Expertise: HR Virtuoso is a cutting-edge solution designed to provide accurate and comprehensive answers to any questions related to HR policies within your organization.\r
+
+    - Advanced Natural Language Processing: Powered by state-of-the-art Natural Language Processing (NLP) technology, the bot can understand and interpret the nuances of human language, ensuring that it comprehends even complex and context-dependent queries.\r
+
+    - Feedback Loop: Recognizing the significance of continuous improvement, HR Virtuoso comes with a built-in feedback mechanism, allowing users to provide feedback on the accuracy and helpfulness of the answers. This feedback loop can be used for the bot to learn and refine its responses over time.\r
+
+    - Effortless Self-Service: Employees no longer need to wait for HR personnel to clarify their doubts. HR Virtuoso empowers employees to find answers quickly and independently, leading to increased productivity and reduced dependency on HR staff for routine queries.\r
+
+    - 24/7 Availability: HR Virtuoso is available round-the-clock, catering to employees in different time zones and accommodating diverse work schedules. This accessibility enhances employee satisfaction by providing instant support when needed.\r
+
+    - Expandable Knowledge: One of HR Virtuoso's standout features is its ability to autonomously expand its knowledge base in real-time. With a simple script execution, the bot can effortlessly integrate new HR policies as they are introduced by the company."
+features:
+  bot_user:
+    display_name: HR Virtuoso
+    always_online: true
+oauth_config:
+  scopes:
+    user:
+      - im:history
+      - im:read
+      - im:write
+      - mpim:history
+      - mpim:read
+      - mpim:write
+      - reactions:read
+      - reactions:write
+    bot:
+      - app_mentions:read
+      - channels:history
+      - channels:read
+      - chat:write
+      - chat:write.customize
+      - im:history
+      - im:read
+      - im:write
+      - mpim:history
+      - mpim:read
+      - mpim:write
+      - reactions:read
+      - reactions:write
+      - users:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - im_history_changed
+      - message.channels
+      - message.im
+      - reaction_added
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
