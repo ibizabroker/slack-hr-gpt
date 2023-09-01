@@ -40,6 +40,8 @@ As an employee are you tired of waiting on HR responses? Meet HR Virtuoso! Say g
 
 As an HR professional, are you all too familiar with the relentless loop of addressing the same questions? Well, it's time to envision a game-changing solution – presenting HR Virtuoso! Our cutting-edge tool is tailor-made to take care of those predictable inquiries surrounding company policies. This means you can reclaim valuable time to direct your energy towards driving strategic initiatives that truly matter. Elevate your role, supercharge your team's potential, and wave farewell to the humdrum routine. With HR Virtuoso, the future of HR management is at your fingertips.
 
+![demo](./demo/demo.gif)
+
 Key Features:
 - **HR Policy Expertise:** HR Virtuoso is a cutting-edge solution designed to provide accurate and comprehensive answers to any questions related to HR policies within your organization.
 - **Advanced Natural Language Processing:** Powered by state-of-the-art Natural Language Processing (NLP) technology, the bot can understand and interpret the nuances of human language, ensuring that it comprehends even complex and context-dependent queries.
