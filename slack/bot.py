@@ -65,6 +65,11 @@ def handle_reaction(event, say):
           "element": {
             "type": "plain_text_input",
             "action_id": "plain_text_input-action",
+            "multiline": True,
+            "placeholder": {
+              "type": "plain_text",
+              "text": "Type your feedback here..."
+            }
           },
           "label": {
             "type": "plain_text",

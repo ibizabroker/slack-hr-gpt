@@ -60,6 +60,7 @@ Key Features:
 - Setup your slack app
   - Sign up with [Slack](https://slack.com/get-started#/createnew) and create your workspace.
   - Create a [slack app](https://api.slack.com/apps). Click from an app manifest, select your workspace, and copy the given below app manifest in yaml format or you can copy my [app manifest](app_manifest.yaml).
+  
   ```yaml
   display_information:
     name: Demo Bot
