@@ -44,7 +44,7 @@ def get_response(input):
       source_doc = chain_result['source_documents'][0].metadata['source']
       source_doc_page = chain_result['source_documents'][0].metadata['page']
   
-  if response.startswith("I'm sorry"):
+  if (response.startswith("I'm sorry") or response.startswith("I apologize") or response.startswith("As an AI HR assistant") or response.startswith("Hello") or response.startswith("Hi")):
     return response
   
   output = f"""{response} \n \n*Source*: {source_doc} \n*Page number*: {source_doc_page}"""
